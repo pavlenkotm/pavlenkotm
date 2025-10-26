@@ -1,16 +1,29 @@
-## Hi there 👋
+# 👋 Hey, I'm PavlenkoTM  
 
-<!--
-**pavlenkotm/pavlenkotm** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Engineer & Web3 Developer** — building at the intersection of real-world automation and blockchain.  
 
-Here are some ideas to get you started:
+- 🧰 Background: mechanical engineer, CAD automation expert (KOMPAS-3D, Python scripts).  
+- ⚙️ I create Python tools for process automation and workflow optimization.  
+- 🌐 In Web3 — experimenting with Rust, Solana, and DeFi protocol integrations.  
+- 💡 Goal: to bring real-world systems and certification logic into decentralized environments.  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 🛠️ Skills
+| Category | Stack / Tools |
+|-----------|----------------|
+| Engineering | KOMPAS-3D, Polynom, AutoCAD, mechanical design |
+| Dev | Python, Rust, Docker, GitHub Actions |
+| Web3 | Solana, DeFi, Anchor, Web3.js |
+| Other | Data automation, compliance tools, CI/CD |
+
+### 📈 What I'm doing now
+- Automating engineering workflows with Python  
+- Testing and documenting new Web3 tools on Solana  
+- Contributing to open-source automation projects  
+
+### 📬 Contacts
+- Telegram: [@pavlenkotm](https://t.me/pavlenkotm)  
+- X (Twitter): [@Andrei98078941](https://x.com/Andrei98078941)
+
+> *“I build tools that make builders faster.”*
+
+---
