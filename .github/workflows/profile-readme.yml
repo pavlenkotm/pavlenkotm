@@ -1,21 +1,28 @@
-name: Update README
+name: Update Profile README
 
 on:
   schedule:
-    # Runs at 00:00 UTC every day
-    - cron: '0 0 * * *'
+    - cron: '0 */6 * * *'  # Every 6 hours
   workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Update README with latest activity
         uses: jamesgeorge007/github-activity-readme@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          COMMIT_MSG: 'Update activity in README'
+          COMMIT_MSG: 'chore: Update recent activity in README'
           MAX_LINES: 5
+
+      - name: Commit and push if changed
+        run: |
+          git diff --quiet && git diff --staged --quiet || (git config --global user.email "github-actions[bot]@users.noreply.github.com" && git config --global user.name "github-actions[bot]" && git commit -am "chore: Auto-update README [skip ci]" && git push)
