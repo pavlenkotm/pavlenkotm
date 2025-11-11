@@ -1,3 +1,29 @@
+// ===== LOADING SCREEN =====
+window.addEventListener('load', () => {
+    const loadingScreen = document.querySelector('.loading-screen');
+    setTimeout(() => {
+        loadingScreen.classList.add('hidden');
+    }, 1000);
+});
+
+// ===== SCROLL TO TOP BUTTON =====
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+});
+
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // ===== NAVIGATION =====
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -232,30 +258,21 @@ if (heroParticles) {
 }
 
 // ===== CODE WINDOW ANIMATION =====
-const codeWindow = document.querySelector('.code-content code');
+const codeWindow = document.querySelector('.code-content');
 
 if (codeWindow) {
-    const codeText = codeWindow.textContent;
-    codeWindow.textContent = '';
-    let i = 0;
-
-    const typeCode = () => {
-        if (i < codeText.length) {
-            codeWindow.textContent += codeText.charAt(i);
-            i++;
-            setTimeout(typeCode, 10);
-        }
-    };
-
-    // Start animation when code window is visible
     const codeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                setTimeout(typeCode, 500);
+                codeWindow.style.opacity = '0';
+                setTimeout(() => {
+                    codeWindow.style.transition = 'opacity 1s ease';
+                    codeWindow.style.opacity = '1';
+                }, 300);
                 codeObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
     codeObserver.observe(codeWindow);
 }
@@ -360,15 +377,6 @@ console.log('%c🚀 Hey there, fellow developer!', 'color: #00ff88; font-size: 2
 console.log('%cInterested in the code? Check out the GitHub repo!', 'color: #ff00ff; font-size: 14px;');
 console.log('%c🔗 https://github.com/pavlenkotm', 'color: #00d4ff; font-size: 14px;');
 console.log('%c💼 Let\'s collaborate: pavlenko.tm.dev@gmail.com', 'color: #00ff88; font-size: 14px;');
-
-// ===== LOAD ANIMATION =====
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
-});
 
 // ===== SERVICE WORKER REGISTRATION (PWA Ready) =====
 if ('serviceWorker' in navigator) {
