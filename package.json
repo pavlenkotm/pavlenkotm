@@ -1,0 +1,24 @@
+{
+  "name": "pavlenkotm-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for blockchain developer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Tests coming soon\" && exit 0"
+  },
+  "keywords": [
+    "portfolio",
+    "blockchain",
+    "solana",
+    "web3",
+    "defi"
+  ],
+  "author": "Andrei Pavlenko <pavlenko.tm.dev@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pavlenkotm/pavlenkotm.git"
+  }
+}

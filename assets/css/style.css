@@ -479,8 +479,35 @@ section {
 .project-image {
     height: 200px;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background-size: cover;
+    background-position: center;
     position: relative;
     overflow: hidden;
+}
+
+/* Project specific backgrounds */
+.project-card:nth-child(1) .project-image {
+    background-image: url('../images/projects/defi-optimizer.svg');
+}
+
+.project-card:nth-child(2) .project-image {
+    background-image: url('../images/projects/mev-bot.svg');
+}
+
+.project-card:nth-child(3) .project-image {
+    background-image: url('../images/projects/web3-toolkit.svg');
+}
+
+.project-card:nth-child(4) .project-image {
+    background-image: url('../images/projects/nft-marketplace.svg');
+}
+
+.project-card:nth-child(5) .project-image {
+    background-image: url('../images/projects/analytics-engine.svg');
+}
+
+.project-card:nth-child(6) .project-image {
+    background-image: url('../images/projects/automation-toolkit.svg');
 }
 
 .project-overlay {
@@ -825,20 +852,62 @@ section {
 
 @media (max-width: 768px) {
     .nav-menu {
-        display: none;
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: rgba(10, 10, 15, 0.98);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
     }
 
     .hamburger {
         display: flex;
     }
 
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
     .hero-title {
         font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
     }
 
     .hero-stats {
         flex-direction: column;
         gap: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
     }
 
     .projects-grid {
@@ -851,5 +920,47 @@ section {
 
     .contact-info {
         grid-template-columns: 1fr;
+    }
+
+    .about-text {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
     }
 }
