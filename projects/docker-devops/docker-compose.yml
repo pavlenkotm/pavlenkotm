@@ -1,0 +1,125 @@
+version: '3.8'
+
+services:
+  # Solana Development Environment
+  solana-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.solana
+    container_name: solana-dev
+    volumes:
+      - ./workspace:/workspace
+      - solana-data:/root/.local/share/solana
+      - cargo-cache:/root/.cargo
+    ports:
+      - "8899:8899"  # Solana RPC
+      - "8900:8900"  # Solana PubSub
+      - "9900:9900"  # Solana Faucet
+    command: solana-test-validator
+    networks:
+      - web3-network
+
+  # PostgreSQL for Analytics
+  postgres:
+    image: postgres:15-alpine
+    container_name: blockchain-db
+    environment:
+      POSTGRES_USER: solana
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: blockchain_data
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - web3-network
+
+  # Redis for Caching
+  redis:
+    image: redis:7-alpine
+    container_name: blockchain-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - web3-network
+
+  # MongoDB for Transaction Storage
+  mongo:
+    image: mongo:7
+    container_name: blockchain-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: devpassword
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - web3-network
+
+  # Node.js API Server
+  api-server:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: blockchain-api
+    environment:
+      - NODE_ENV=development
+      - SOLANA_RPC_URL=http://solana-dev:8899
+      - POSTGRES_HOST=postgres
+      - REDIS_HOST=redis
+      - MONGO_HOST=mongo
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+      - mongo
+      - solana-dev
+    volumes:
+      - ./api:/app
+    networks:
+      - web3-network
+
+  # Monitoring with Grafana
+  grafana:
+    image: grafana/grafana:latest
+    container_name: blockchain-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+    networks:
+      - web3-network
+
+  # Prometheus for Metrics
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: blockchain-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    networks:
+      - web3-network
+
+networks:
+  web3-network:
+    driver: bridge
+
+volumes:
+  solana-data:
+  cargo-cache:
+  postgres-data:
+  redis-data:
+  mongo-data:
+  grafana-data:
+  prometheus-data:

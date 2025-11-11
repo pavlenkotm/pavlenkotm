@@ -1,0 +1,19 @@
+[package]
+name = "solana-defi-optimizer"
+version = "1.0.0"
+edition = "2021"
+authors = ["Andrei Pavlenko <pavlenko.tm.dev@gmail.com>"]
+description = "Automated yield optimization protocol on Solana with smart routing and arbitrage"
+
+[dependencies]
+solana-program = "~1.17"
+spl-token = "~4.0"
+borsh = "0.10"
+arrayref = "0.3"
+thiserror = "1.0"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+no-entrypoint = []

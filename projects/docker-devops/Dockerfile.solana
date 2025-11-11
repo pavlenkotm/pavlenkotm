@@ -1,0 +1,65 @@
+# Solana Development Docker Container
+# Includes Rust, Solana CLI, Anchor, and development tools
+# Author: PavlenkoTM
+
+FROM ubuntu:22.04
+
+# Prevent interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    git \
+    build-essential \
+    pkg-config \
+    libssl-dev \
+    libudev-dev \
+    clang \
+    cmake \
+    llvm \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+# Install Solana CLI
+RUN sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+ENV PATH="/root/.local/share/solana/install/active_release/bin:${PATH}"
+
+# Install Node.js and npm (for Anchor)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
+# Install Yarn
+RUN npm install -g yarn
+
+# Install Anchor Framework
+RUN cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+RUN avm install latest
+RUN avm use latest
+
+# Install SPL CLI
+RUN cargo install spl-token-cli
+
+# Set working directory
+WORKDIR /workspace
+
+# Configure Solana for devnet by default
+RUN solana config set --url https://api.devnet.solana.com
+
+# Verify installations
+RUN rustc --version && \
+    cargo --version && \
+    solana --version && \
+    anchor --version && \
+    node --version && \
+    npm --version
+
+# Expose ports for local validator
+EXPOSE 8899 8900 9900
+
+# Default command
+CMD ["/bin/bash"]
