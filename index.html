@@ -3,184 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Andrei Pavlenko - Blockchain Developer & Web3 Architect | Building the decentralized future">
-    <meta name="keywords" content="blockchain, solana, web3, defi, rust, developer">
+    <meta name="description" content="Andrei Pavlenko - Blockchain Developer & Web3 Architect. Building the future of decentralized finance.">
+    <meta name="keywords" content="blockchain, web3, solana, defi, smart contracts, rust, developer">
     <meta name="author" content="Andrei Pavlenko">
-    <title>PavlenkoTM | Blockchain Developer & Web3 Architect</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta property="og:title" content="Andrei Pavlenko - Blockchain Developer">
+    <meta property="og:description" content="Building innovative Web3 solutions and DeFi protocols">
+    <meta property="og:type" content="website">
+    <title>Andrei Pavlenko - Blockchain Developer & Web3 Architect</title>
+
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Modern Variable Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Animated Background -->
+    <canvas id="bgCanvas" class="bg-canvas"></canvas>
+
     <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loader"></div>
-        <div class="loading-text">Loading Portfolio...</div>
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-line"></div>
+                <div class="loader-line"></div>
+                <div class="loader-line"></div>
+                <div class="loader-text">LOADING</div>
+            </div>
+        </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <span class="brand-text">&lt;PavlenkoTM /&gt;</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">PavlenkoTM</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">
+                        <span class="nav-number">01.</span>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <span class="nav-number">02.</span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">
+                        <span class="nav-number">03.</span>
+                        <span class="nav-text">Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">
+                        <span class="nav-number">04.</span>
+                        <span class="nav-text">Skills</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <span class="nav-number">05.</span>
+                        <span class="nav-text">Contact</span>
+                    </a>
+                </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-particles"></div>
-        <div class="container">
+    <section class="hero" id="home">
+        <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="gradient-text">Andrei Pavlenko</span>
-                    </h1>
-                    <div class="typing-container">
-                        <h2 class="hero-subtitle">
-                            <span class="typed-text"></span>
-                            <span class="cursor">&nbsp;</span>
-                        </h2>
+                <div class="hero-badge" data-aos="fade-down">
+                    <i class="fas fa-code"></i>
+                    <span>Available for new projects</span>
+                </div>
+
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    <span class="title-line">
+                        <span class="title-word">Building</span>
+                    </span>
+                    <span class="title-line">
+                        <span class="title-word gradient-text">Web3 Future</span>
+                    </span>
+                </h1>
+
+                <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                    <span class="subtitle-prefix">I'm</span>
+                    <span class="subtitle-name">Andrei Pavlenko</span>
+                    <span class="subtitle-comma">,</span>
+                </div>
+
+                <div class="typing-container" data-aos="fade-up" data-aos-delay="300">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+                    Blockchain developer specializing in Solana, Rust, and DeFi protocols.
+                    Creating scalable and secure decentralized applications that shape the future of finance.
+                </p>
+
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>View Projects</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get in Touch</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="600">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Projects Completed</div>
                     </div>
-                    <p class="hero-description">
-                        Transforming real-world engineering into blockchain innovation.
-                        Building scalable Web3 infrastructure and DeFi protocols that matter.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-rocket"></i> View Projects
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope"></i> Get In Touch
-                        </a>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1200">0</div>
+                        <div class="stat-label">GitHub Stars</div>
                     </div>
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="50">0</span>
-                            <span class="stat-label">Projects Deployed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="100000">0</span>
-                            <span class="stat-label">Lines of Code</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="15">0</span>
-                            <span class="stat-label">Technologies Mastered</span>
-                        </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="30">0</div>
+                        <div class="stat-label">Happy Clients</div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="code-window">
-                        <div class="window-header">
-                            <div class="window-buttons">
-                                <span class="btn-close"></span>
-                                <span class="btn-minimize"></span>
-                                <span class="btn-maximize"></span>
-                            </div>
-                            <span class="window-title">blockchain_architect.rs</span>
+            </div>
+
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="700">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-buttons">
+                            <span class="btn-close"></span>
+                            <span class="btn-minimize"></span>
+                            <span class="btn-maximize"></span>
                         </div>
-                        <div class="code-content">
-                            <pre><code><span class="code-keyword">use</span> solana_program::{
-    account_info::AccountInfo,
-    entrypoint,
-    pubkey::Pubkey,
-};
+                        <div class="window-title">blockchain_contract.rs</div>
+                    </div>
+                    <div class="window-content">
+                        <pre><code><span class="code-comment">// Solana Smart Contract</span>
+<span class="code-keyword">use</span> anchor_lang::prelude::*;
 
-<span class="code-keyword">entrypoint!</span>(process_instruction);
+<span class="code-keyword">declare_id!</span>(<span class="code-string">"Fg6PaFpoGXkYsidMpWxTWqSGobuGULsEG4LWKfdpZipE"</span>);
 
-<span class="code-keyword">pub fn</span> <span class="code-function">process_instruction</span>(
-    program_id: &Pubkey,
-    accounts: &[AccountInfo],
-    instruction_data: &[u8],
-) -> ProgramResult {
-    <span class="code-comment">// Building the future 🚀</span>
-    msg!(<span class="code-string">"Web3 Revolution!"</span>);
-    <span class="code-keyword">Ok</span>(())
+<span class="code-decorator">#[program]</span>
+<span class="code-keyword">pub mod</span> <span class="code-function">defi_protocol</span> {
+    <span class="code-keyword">use super</span>::*;
+
+    <span class="code-keyword">pub fn</span> <span class="code-function">initialize</span>(
+        ctx: Context&lt;Initialize&gt;,
+        amount: <span class="code-type">u64</span>
+    ) -&gt; Result&lt;()&gt; {
+        <span class="code-keyword">let</span> pool = &<span class="code-keyword">mut</span> ctx.accounts.pool;
+        pool.authority = ctx.accounts.authority.key();
+        pool.total_staked = amount;
+        <span class="code-function">msg!</span>(<span class="code-string">"Pool initialized with {} tokens"</span>, amount);
+        Ok(())
+    }
 }</code></pre>
-                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-icons">
+                    <div class="float-icon" style="--delay: 0s">
+                        <i class="fab fa-rust"></i>
+                    </div>
+                    <div class="float-icon" style="--delay: 1s">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <div class="float-icon" style="--delay: 2s">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="float-icon" style="--delay: 3s">
+                        <i class="fab fa-python"></i>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
+
+        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="800">
+            <div class="scroll-icon">
+                <div class="scroll-wheel"></div>
             </div>
-            <div class="arrow">
-                <span></span>
-                <span></span>
-            </div>
+            <span class="scroll-text">Scroll to explore</span>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section class="about" id="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-number">02.</span>
                 <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">From mechanical engineering to blockchain innovation</p>
+                <div class="section-line"></div>
             </div>
+
             <div class="about-content">
-                <div class="about-text">
-                    <div class="about-card">
-                        <div class="card-icon">
-                            <i class="fas fa-user-astronaut"></i>
+                <div class="about-text" data-aos="fade-right">
+                    <p class="about-paragraph">
+                        Hello! I'm <span class="highlight">Andrei Pavlenko</span>, a passionate blockchain developer
+                        with expertise in building decentralized applications and DeFi protocols. My journey in Web3
+                        started in 2020, and since then, I've been fascinated by the potential of blockchain technology
+                        to revolutionize how we interact with digital assets.
+                    </p>
+
+                    <p class="about-paragraph">
+                        I specialize in <span class="highlight">Solana development</span> using Rust and the Anchor framework,
+                        creating high-performance smart contracts that can handle millions of transactions. My work focuses
+                        on building secure, scalable, and user-friendly DeFi solutions.
+                    </p>
+
+                    <p class="about-paragraph">
+                        Beyond coding, I'm an active contributor to open-source projects and enjoy sharing knowledge
+                        with the developer community. I believe in continuous learning and staying updated with
+                        the latest trends in blockchain technology.
+                    </p>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>5+ years of development experience</span>
                         </div>
-                        <h3>The Journey</h3>
-                        <p>
-                            Started as a mechanical engineer designing physical systems with precision.
-                            Discovered blockchain technology and found the perfect fusion: applying engineering
-                            rigor to build immutable, trustless digital systems.
-                        </p>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Expert in Rust & Solana</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>DeFi protocol architect</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Open source contributor</span>
+                        </div>
                     </div>
-                    <div class="about-card">
-                        <div class="card-icon">
-                            <i class="fas fa-rocket"></i>
+                </div>
+
+                <div class="about-image" data-aos="fade-left">
+                    <div class="image-wrapper">
+                        <div class="image-border"></div>
+                        <div class="image-content">
+                            <div class="avatar-placeholder">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
                         </div>
-                        <h3>Current Mission</h3>
-                        <p>
-                            Building scalable Web3 infrastructure on Solana. Developing DeFi protocols,
-                            automation tools, and developer SDKs that push the boundaries of what's possible
-                            in decentralized finance.
-                        </p>
                     </div>
-                    <div class="about-card">
-                        <div class="card-icon">
-                            <i class="fas fa-brain"></i>
+
+                    <div class="tech-stack">
+                        <h3 class="tech-title">Tech Stack</h3>
+                        <div class="tech-grid">
+                            <div class="tech-item">Rust</div>
+                            <div class="tech-item">Solana</div>
+                            <div class="tech-item">TypeScript</div>
+                            <div class="tech-item">React</div>
+                            <div class="tech-item">Node.js</div>
+                            <div class="tech-item">Python</div>
+                            <div class="tech-item">Web3.js</div>
+                            <div class="tech-item">Anchor</div>
                         </div>
-                        <h3>Philosophy</h3>
-                        <p>
-                            Code is poetry. Every function should be beautiful, efficient, and secure.
-                            Automate everything. Ship fast, iterate faster. Build in public, share knowledge,
-                            and grow the ecosystem.
-                        </p>
-                    </div>
-                    <div class="about-card">
-                        <div class="card-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>Achievements</h3>
-                        <ul class="achievements-list">
-                            <li><i class="fas fa-check"></i> 50+ Web3 projects deployed to mainnet</li>
-                            <li><i class="fas fa-check"></i> 100K+ lines of production Rust code</li>
-                            <li><i class="fas fa-check"></i> Automated workflows saving 1000+ hours</li>
-                            <li><i class="fas fa-check"></i> Open source contributions across 20+ repos</li>
-                            <li><i class="fas fa-check"></i> DeFi protocols handling $1M+ TVL</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -188,475 +295,456 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section class="projects" id="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-number">03.</span>
                 <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Real-world applications built with cutting-edge technology</p>
+                <div class="section-line"></div>
             </div>
+
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavlenkotm/solana-defi-optimizer" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pavlenkotm/solana-defi-optimizer" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Rust</span>
-                            <span class="tag">Solana</span>
-                            <span class="tag">DeFi</span>
+
+                    <h3 class="project-title">DeFi Yield Optimizer</h3>
+                    <p class="project-description">
+                        Advanced yield aggregation protocol built on Solana. Automatically routes liquidity
+                        to the most profitable DeFi strategies, optimizing returns while minimizing gas costs.
+                    </p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">Solana</span>
+                        <span class="tech-tag">Anchor</span>
+                        <span class="tech-tag">TypeScript</span>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>245</span>
                         </div>
-                        <h3 class="project-title">DeFi Yield Optimizer</h3>
-                        <p class="project-description">
-                            Automated yield optimization protocol on Solana. Smart routing across 10+ DEXs,
-                            real-time arbitrage detection, and gas-optimized transactions. Processes 1000+
-                            transactions daily with 99.9% uptime.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>245</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>67</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>1.2k</span>
-                            </div>
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>43</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-robot" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavlenkotm/solana-mev-bot" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Rust</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">MEV</span>
+
+                    <h3 class="project-title">Solana MEV Framework</h3>
+                    <p class="project-description">
+                        High-performance MEV extraction framework for Solana. Implements sophisticated
+                        algorithms for arbitrage detection and transaction optimization.
+                    </p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">gRPC</span>
+                        <span class="tech-tag">Redis</span>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>389</span>
                         </div>
-                        <h3 class="project-title">Solana MEV Framework</h3>
-                        <p class="project-description">
-                            High-performance MEV bot framework with sub-100ms latency. Mempool monitoring,
-                            sandwich attack detection, and profitable arbitrage execution. Built with Rust
-                            for maximum performance.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>389</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>102</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>2.5k</span>
-                            </div>
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>67</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-toolbox" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavlenkotm/web3-dev-toolkit" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/pavlenkotm/web3-typescript-sdk" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">CLI</span>
+
+                    <h3 class="project-title">Web3 Developer Toolkit</h3>
+                    <p class="project-description">
+                        Comprehensive toolkit for Web3 developers. Includes utilities for wallet management,
+                        transaction handling, and smart contract interaction across multiple chains.
+                    </p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Web3.js</span>
+                        <span class="tech-tag">Ethers</span>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>512</span>
                         </div>
-                        <h3 class="project-title">Web3 Developer Toolkit</h3>
-                        <p class="project-description">
-                            Complete CLI toolkit for Web3 development. Smart contract deployment, wallet
-                            management, RPC optimization, and testing utilities. Saves developers 10+ hours
-                            per week on repetitive tasks.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>512</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>134</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>3.1k</span>
-                            </div>
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>89</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-images" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavlenkotm/nft-marketplace" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Next.js</span>
-                            <span class="tag">NFT</span>
+
+                    <h3 class="project-title">NFT Marketplace</h3>
+                    <p class="project-description">
+                        Full-featured NFT marketplace built with React and Next.js. Supports minting,
+                        trading, and auctioning NFTs with advanced filtering and search capabilities.
+                    </p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">IPFS</span>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>324</span>
                         </div>
-                        <h3 class="project-title">NFT Marketplace Platform</h3>
-                        <p class="project-description">
-                            Full-featured NFT marketplace with minting, trading, and auctions. Built on
-                            Solana using Metaplex. Real-time price feeds, royalty management, and IPFS
-                            storage integration.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>678</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>201</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>4.2k</span>
-                            </div>
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>52</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 5 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-database" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavlenkotm/blockchain-analytics" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Analytics</span>
-                            <span class="tag">BigData</span>
+
+                    <h3 class="project-title">Liquidity Router Protocol</h3>
+                    <p class="project-description">
+                        Intelligent liquidity routing protocol for Solana DEXes. Splits orders across
+                        multiple pools to achieve optimal pricing and minimal slippage.
+                    </p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">Solana</span>
+                        <span class="tech-tag">Anchor</span>
+                        <span class="tech-tag">React</span>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>198</span>
                         </div>
-                        <h3 class="project-title">On-Chain Analytics Engine</h3>
-                        <p class="project-description">
-                            Real-time blockchain analytics platform. Processes millions of transactions,
-                            generates insights, and detects patterns. PostgreSQL + Redis backend, React
-                            dashboard with live updates.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>423</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>98</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>2.8k</span>
-                            </div>
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>34</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Project 6 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-cogs" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavlenkotm/automation-scripts" class="project-link" target="_blank">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Bash</span>
-                            <span class="tag">DevOps</span>
+
+                    <h3 class="project-title">Smart Contract Analyzer</h3>
+                    <p class="project-description">
+                        AI-powered smart contract security analyzer. Uses machine learning to detect
+                        vulnerabilities and suggest improvements for Solana programs.
+                    </p>
+
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+
+                    <div class="project-stats">
+                        <div class="stat">
+                            <i class="fas fa-star"></i>
+                            <span>276</span>
                         </div>
-                        <h3 class="project-title">Automation Toolkit</h3>
-                        <p class="project-description">
-                            Collection of 50+ automation scripts for DevOps workflows. CI/CD pipelines,
-                            deployment automation, monitoring, and alerting. Docker + Kubernetes ready
-                            configurations included.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-star"></i>
-                                <span>891</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-code-branch"></i>
-                                <span>267</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-eye"></i>
-                                <span>5.6k</span>
-                            </div>
+                        <div class="stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>45</span>
                         </div>
                     </div>
-                </div>
+                </article>
+            </div>
+
+            <div class="projects-cta" data-aos="fade-up">
+                <a href="https://github.com/pavlenkotm" class="btn btn-outline" target="_blank">
+                    <span>View All Projects on GitHub</span>
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section class="skills" id="skills">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Arsenal</h2>
-                <p class="section-subtitle">Technologies I work with daily</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-number">04.</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-line"></div>
             </div>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-code"></i> Blockchain & Web3
-                    </h3>
-                    <div class="skills-grid">
+
+            <div class="skills-content">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-icon">🦀</div>
                             <div class="skill-info">
-                                <h4>Rust</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="95"></div>
-                                </div>
-                                <span class="skill-percent">95%</span>
+                                <span class="skill-name">Rust</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">◎</div>
                             <div class="skill-info">
-                                <h4>Solana</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="92"></div>
-                                </div>
-                                <span class="skill-percent">92%</span>
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">⟠</div>
                             <div class="skill-info">
-                                <h4>Ethereum</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                                <span class="skill-percent">85%</span>
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">🔗</div>
                             <div class="skill-info">
-                                <h4>Web3.js</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                                <span class="skill-percent">90%</span>
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 92%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-laptop-code"></i> Programming Languages
-                    </h3>
-                    <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-header">
+                        <i class="fas fa-cube"></i>
+                        <h3>Blockchain</h3>
+                    </div>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-icon">🐍</div>
                             <div class="skill-info">
-                                <h4>Python</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="93"></div>
-                                </div>
-                                <span class="skill-percent">93%</span>
+                                <span class="skill-name">Solana</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">📘</div>
                             <div class="skill-info">
-                                <h4>TypeScript</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                                <span class="skill-percent">88%</span>
+                                <span class="skill-name">Anchor Framework</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">🔷</div>
                             <div class="skill-info">
-                                <h4>Go</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                                <span class="skill-percent">80%</span>
+                                <span class="skill-name">Ethereum</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">⚡</div>
                             <div class="skill-info">
-                                <h4>JavaScript</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                                <span class="skill-percent">90%</span>
+                                <span class="skill-name">Smart Contracts</span>
+                                <span class="skill-level">93%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 93%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-layer-group"></i> Frontend & Frameworks
-                    </h3>
-                    <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-header">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Frameworks</h3>
+                    </div>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-icon">⚛️</div>
                             <div class="skill-info">
-                                <h4>React</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                                <span class="skill-percent">90%</span>
+                                <span class="skill-name">React</span>
+                                <span class="skill-level">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 88%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">▲</div>
                             <div class="skill-info">
-                                <h4>Next.js</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="87"></div>
-                                </div>
-                                <span class="skill-percent">87%</span>
+                                <span class="skill-name">Next.js</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">🎨</div>
                             <div class="skill-info">
-                                <h4>Tailwind CSS</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="92"></div>
-                                </div>
-                                <span class="skill-percent">92%</span>
+                                <span class="skill-name">Node.js</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">🟢</div>
                             <div class="skill-info">
-                                <h4>Node.js</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                                <span class="skill-percent">88%</span>
+                                <span class="skill-name">FastAPI</span>
+                                <span class="skill-level">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 82%"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-server"></i> DevOps & Infrastructure
-                    </h3>
-                    <div class="skills-grid">
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-icon">🐳</div>
                             <div class="skill-info">
-                                <h4>Docker</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                                <span class="skill-percent">90%</span>
+                                <span class="skill-name">Docker</span>
+                                <span class="skill-level">87%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 87%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">☸️</div>
                             <div class="skill-info">
-                                <h4>Kubernetes</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="82"></div>
-                                </div>
-                                <span class="skill-percent">82%</span>
+                                <span class="skill-name">Git</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">🔧</div>
                             <div class="skill-info">
-                                <h4>CI/CD</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                                <span class="skill-percent">88%</span>
+                                <span class="skill-name">CI/CD</span>
+                                <span class="skill-level">83%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 83%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-icon">🐧</div>
                             <div class="skill-info">
-                                <h4>Linux</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="91"></div>
-                                </div>
-                                <span class="skill-percent">91%</span>
+                                <span class="skill-name">AWS</span>
+                                <span class="skill-level">78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 78%"></div>
                             </div>
                         </div>
                     </div>
@@ -666,63 +754,96 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="contact" id="contact">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Build Together</h2>
-                <p class="section-subtitle">Open for collaborations, consulting, and exciting Web3 projects</p>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-number">05.</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
             </div>
+
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
+                <div class="contact-info" data-aos="fade-right">
+                    <h3 class="contact-heading">Let's Work Together</h3>
+                    <p class="contact-text">
+                        I'm always interested in hearing about new projects and opportunities.
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-data">
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:andrei@pavlenko.dev" class="contact-value">andrei@pavlenko.dev</a>
+                            </div>
                         </div>
-                        <h3>Email</h3>
-                        <a href="mailto:pavlenko.tm.dev@gmail.com">pavlenko.tm.dev@gmail.com</a>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fab fa-telegram"></i>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <div class="contact-data">
+                                <span class="contact-label">Telegram</span>
+                                <a href="https://t.me/pavlenkotm" class="contact-value">@pavlenkotm</a>
+                            </div>
                         </div>
-                        <h3>Telegram</h3>
-                        <a href="https://t.me/pavlenkotm" target="_blank">@pavlenkotm</a>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fab fa-github"></i>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-data">
+                                <span class="contact-label">GitHub</span>
+                                <a href="https://github.com/pavlenkotm" class="contact-value">@pavlenkotm</a>
+                            </div>
                         </div>
-                        <h3>GitHub</h3>
-                        <a href="https://github.com/pavlenkotm" target="_blank">@pavlenkotm</a>
                     </div>
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fab fa-twitter"></i>
-                        </div>
-                        <h3>Twitter/X</h3>
-                        <a href="https://x.com/Andrei98078941" target="_blank">@Andrei98078941</a>
-                    </div>
-                </div>
-                <div class="contact-social">
-                    <h3>Connect on Social Media</h3>
+
                     <div class="social-links">
-                        <a href="https://github.com/pavlenkotm" target="_blank" class="social-link">
+                        <a href="https://github.com/pavlenkotm" class="social-link" target="_blank">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/pavlenkotm" target="_blank" class="social-link">
+                        <a href="https://linkedin.com/in/pavlenkotm" class="social-link" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://t.me/pavlenkotm" target="_blank" class="social-link">
-                            <i class="fab fa-telegram"></i>
-                        </a>
-                        <a href="https://x.com/Andrei98078941" target="_blank" class="social-link">
+                        <a href="https://twitter.com/pavlenkotm" class="social-link" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://discord.gg/pavlenkotm" target="_blank" class="social-link">
-                            <i class="fab fa-discord"></i>
+                        <a href="https://t.me/pavlenkotm" class="social-link" target="_blank">
+                            <i class="fab fa-telegram"></i>
                         </a>
                     </div>
                 </div>
+
+                <form class="contact-form" data-aos="fade-left" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" placeholder="Project inquiry" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Your message..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -731,25 +852,22 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2025 PavlenkoTM. Built with ❤️ and ☕</p>
-                    <p class="footer-subtitle">Crafting the decentralized future, one block at a time</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://github.com/pavlenkotm" target="_blank">GitHub</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#contact">Contact</a>
-                </div>
+                <p class="footer-text">
+                    Designed & Built by <span class="highlight">Andrei Pavlenko</span>
+                </p>
+                <p class="footer-copyright">
+                    &copy; 2025 All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
-    <div class="scroll-to-top">
+    <button class="scroll-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </button>
 
+    <!-- Custom JavaScript -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
