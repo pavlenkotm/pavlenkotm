@@ -3,6 +3,7 @@
 </h1>
 
 <p align="center">
+  <a href="https://pion.com.ru"><img src="https://img.shields.io/badge/PION-1C4E80?style=for-the-badge&logo=googlechrome&logoColor=white" alt="pion.com.ru"/></a>
   <a href="https://t.me/pavlenkotm"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white"/></a>
   <img src="https://komarev.com/ghpvc/?username=pavlenkotm&style=for-the-badge&color=blueviolet" alt="Profile views"/>
 </p>
@@ -16,6 +17,7 @@ class Engineer:
     def __init__(self):
         self.name      = "Andrey Pavlenko"
         self.role      = "Engineer & Python Developer"
+        self.company   = "PION (pion.com.ru)"
         self.languages = ["Python"]
         self.tools     = ["Ubuntu", "KOMPAS-3D"]
         self.focus     = ["Automation", "CAD", "Tooling"]
